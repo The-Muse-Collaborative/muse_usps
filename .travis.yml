@@ -7,10 +7,8 @@ branches:
   - master
 install:
 - python setup.py install
-- pip install pep8 pylint
 script:
 - python setup.py nosetests
-- make lint
 after_success:
 - pip install python-coveralls
 - coveralls
