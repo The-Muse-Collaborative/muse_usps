@@ -39,32 +39,29 @@ For instance, the zip code can be an empty string, and the USPS API will fill
 it in automatically.
 
 ## Development
-Clone the repository, and install the pre-commit hooks that run the unit tests,
-check for at least 95% code coverage, and lint the code.
+Clone the repository, install the pre-commit hooks, and run the pre-commit hook
+to make sure everything is sane before beginning development. In order to run
+the unit tests, the USPS API URL and user ID must be available in the
+environment variables `MUSE_USPS_API_URL` and `MUSE_USPS_USER_ID` respectively.
+These variables should exported in a file named `test_env.sh` so that they are
+always available by running `make test` and the pre-commit hooks.  The
+environment can be set up by copy-pasting the following code and inserting the
+correct values for the API secrets.
 
-Getting a development environment:
-```
+```bash
 git clone git@github.com:jonesinator/muse_usps.git
 cd muse_usps
 make hooks
-```
-
-In order to run the unit tests, the USPS API URL and user ID must be available
-in the environment variables `MUSE_USPS_API_URL` and `MUSE_USPS_USER_ID`
-respectively. These variables should exported in a file named `test_env.sh` so
-that they are always available by running `make test` and the pre-commit hooks.
-The `test_env.sh` file can be created by copy-pasting the following command and
-replacing the values.
-
-```bash
 cat << EOF >> test_env.sh
 export MUSE_USPS_API_URL="API URL HERE"
 export MUSE_USPS_API_URL="USER ID HERE"
 EOF
+make pre-commit
 ```
 
 For the Travis-CI tests these environment variables are configured in the
 Travis-CI repository settings and are not in `travis.yml`. Additionally, the
-Travis-CI settings.
+Travis-CI repository settings specify a `COVERALLS_REPO_TOKEN` environment
+variable for uploading code coverage results to coveralls.
 
 The `Makefile` provides several useful targets. Use `make help` for a list.
