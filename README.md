@@ -10,11 +10,28 @@ addresses over the USPS web API.
 souce code using `Sphinx` and served by GitHub pages.
 
 ## Installation
-Simply clone the repository and run `python setup.py install`. The tip version
-can be installed directly using `pip` using
+Simply clone the repository and run `python setup.py install`.
+
+The tip version can be installed using `pip` with
 `pip install -e git+git://github.com/jonesinator/muse_usps.git@master#egg=muse_usps`.
 A specific version can be installed by replacing `master` with a tag name or
 the the hash of the changeset that should be installed.
+
+## Usage
+
+Using the address validator is very simple.
+
+```
+import muse_usps
+
+validated = muse_usps.validate('API URL HERE',
+                               'API USER ID HERE',
+                               {'address_line_1': '1600 Pennsylvania Ave NW',
+                                'address_line_2': '',
+                                'city': 'Washington',
+                                'state': 'DC',
+                                'zip_code': '20500'})
+```
 
 ## Development
 Clone the repository, and install the pre-commit hooks that run the unit tests,
