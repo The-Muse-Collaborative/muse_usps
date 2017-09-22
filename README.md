@@ -21,7 +21,7 @@ the the hash of the changeset that should be installed.
 
 Using the address validator is very simple.
 
-```
+```python
 import muse_usps
 
 validated = muse_usps.validate('API URL HERE',
