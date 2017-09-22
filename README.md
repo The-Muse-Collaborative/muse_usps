@@ -39,18 +39,19 @@ For instance, the zip code can be an empty string, and the USPS API will fill
 it in automatically.
 
 ## Development
-Clone the repository, install the pre-commit hooks, and run the pre-commit hook
-to make sure everything is sane before beginning development. In order to run
-the unit tests, the USPS API URL and user ID must be available in the
-environment variables `MUSE_USPS_API_URL` and `MUSE_USPS_USER_ID` respectively.
-These variables should exported in a file named `test_env.sh` so that they are
-always available by running `make test` and the pre-commit hooks.  The
-environment can be set up by copy-pasting the following code and inserting the
-correct values for the API secrets.
+Clone the repository, install the needed python packages and pre-commit hooks,
+then run the pre-commit hooks to make sure everything is sane before beginning
+development. In order to run the unit tests, the USPS API URL and user ID must
+be available in the environment variables `MUSE_USPS_API_URL` and
+`MUSE_USPS_USER_ID` respectively.  These variables should exported in a file
+named `test_env.sh` so that they are always available by running `make test`
+and the pre-commit hooks.  The environment can be set up by copy-pasting the
+following code and inserting the correct values for the API secrets.
 
 ```bash
 git clone git@github.com:jonesinator/muse_usps.git
 cd muse_usps
+pip install -r requirements.txt
 make hooks
 cat << EOF >> test_env.sh
 export MUSE_USPS_API_URL="API URL HERE"
