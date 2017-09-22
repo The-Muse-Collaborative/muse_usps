@@ -1,0 +1,7 @@
+test_env.sh
+/dist/
+/build/
+/.eggs/
+*.pyc
+*.egg-info
+.coverage
