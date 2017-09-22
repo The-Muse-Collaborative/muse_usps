@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/jonesinator/muse_usps.svg)
 [![Coverage Status](https://coveralls.io/repos/jonesinator/muse_usps/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonesinator/muse_usps?branch=master)
 
-Simple python module providing `usps.validate` function which validates
+Simple python module providing a `usps.validate` function which validates
 addresses over the USPS web API.
 
 ## Documentation
@@ -34,6 +34,10 @@ validated = muse_usps.validate('API URL HERE',
                                 'zip_code': '20500'})
 ```
 
+All of the fields shown are mandatory, but they are allowed to be empty strings.
+For instance, the zip code can be an empty string, and the USPS API will fill
+it in automatically.
+
 ## Development
 Clone the repository, and install the pre-commit hooks that run the unit tests,
 check for at least 95% code coverage, and lint the code.
@@ -60,6 +64,7 @@ EOF
 ```
 
 For the Travis-CI tests these environment variables are configured in the
-Travis-CI repository settings and are not in `travis.yml`.
+Travis-CI repository settings and are not in `travis.yml`. Additionally, the
+Travis-CI settings.
 
 The `Makefile` provides several useful targets. Use `make help` for a list.
