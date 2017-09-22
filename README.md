@@ -42,9 +42,23 @@ Getting a development environment:
 git clone git@github.com:jonesinator/muse_usps.git
 cd muse_usps
 make hooks
-make test
 ```
 
-The `Makefile` provides several useful targets.
-* `lint` -- Runs the linter on all python code.
-* `test` -- Runs the unit tests.
+In order to run the unit tests, the USPS API URL and user ID must be available
+in the environment variables `MUSE_USPS_API_URL` and `MUSE_USPS_USER_ID`
+respectively. These variables should exported in a file named `test_env.sh` so
+that they are always available by running `make test` and the pre-commit hooks.
+The `test_env.sh` file can be created by copy-pasting the following command and
+replacing the values.
+
+```bash
+cat << EOF >> test_env.sh
+export MUSE_USPS_API_URL="API URL HERE"
+export MUSE_USPS_API_URL="USER ID HERE"
+EOF
+```
+
+For the Travis-CI tests these environment variables are configured in the
+Travis-CI repository settings and are not in `travis.yml`.
+
+The `Makefile` provides several useful targets. Use `make help` for a list.
