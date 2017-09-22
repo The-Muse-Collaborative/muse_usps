@@ -7,7 +7,7 @@ help:
 
 .PHONY: test
 test: ## Run unit tests and generate coverage.
-	@bash -c "source test_env.sh && python setup.py -q nosetests"
+	@bash -c "source test_env.sh && nosetests"
 
 .PHONY: lint
 LINT_TARGETS := setup.py muse_usps

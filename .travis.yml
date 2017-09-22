@@ -8,7 +8,8 @@ branches:
 install:
 - python setup.py install
 script:
-- python setup.py nosetests
+- make lint
+- nosetests
 after_success:
 - pip install python-coveralls
 - coveralls
