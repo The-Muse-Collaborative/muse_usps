@@ -1,9 +1,9 @@
 # muse\_usps
-[![Build Status](https://travis-ci.org/jonesinator/muse_usps.svg)](https://travis-ci.org/jonesinator/muse_usps)
 ![License](https://img.shields.io/github/license/jonesinator/muse_usps.svg)
+[![Build Status](https://travis-ci.org/jonesinator/muse_usps.svg)](https://travis-ci.org/jonesinator/muse_usps)
 [![Coverage Status](https://coveralls.io/repos/jonesinator/muse_usps/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonesinator/muse_usps?branch=master)
 
-Simple python module providing a `usps.validate` function which validates
+Simple python module providing a `muse_usps.validate` function which validates
 addresses over the USPS web API.
 
 ## Documentation
@@ -34,9 +34,9 @@ validated = muse_usps.validate('API URL HERE',
                                 'zip_code': '20500'})
 ```
 
-All of the fields shown are mandatory, but they are allowed to be empty strings.
-For instance, the zip code can be an empty string, and the USPS API will fill
-it in automatically.
+All of the fields and keys shown are mandatory, but they are allowed to be
+empty strings.  For instance, the zip code can be an empty string, and the USPS
+API will fill it in automatically.
 
 ## Development
 Clone the repository, install the needed python packages and pre-commit hooks,
