@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/jonesinator/muse_usps.svg)](https://travis-ci.org/jonesinator/muse_usps)
 ![License](https://img.shields.io/github/license/jonesinator/muse_usps.svg)
 [![Coverage Status](https://coveralls.io/repos/jonesinator/muse_usps/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonesinator/muse_usps?branch=master)
+
 Simple python module providing `usps.validate` function which validates
 addresses over the USPS web API.
 
