@@ -11,8 +11,8 @@ def validate(api_url, user_id, address):
         :param api_url: The full http address of the USPS web API.
         :param user_id: The API user ID assigned by USPS.
         :param address: A dictionary containing address_line_1, address_line_2,
-			city, state, and zip_code keys with string values. All
-			keys must be present, but some keys may be empty
+                        city, state, and zip_code keys with string values. All
+                        keys must be present, but some keys may be empty
                         strings.
     """
 
