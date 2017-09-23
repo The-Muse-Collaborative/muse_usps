@@ -12,4 +12,10 @@ script:
 after_success:
 - pip install python-coveralls
 - coveralls
-- make docs-publish
+deploy:
+  provider: pages
+  local_dir: docs/html
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
