@@ -7,11 +7,11 @@ help:
 
 .PHONY: test
 test: ## Run unit tests and generate coverage.
-	@bash -c "source test_env.sh && nosetests --with-coverage \
-	                                          --cover-package=muse_usps \
-                                                  --cover-tests \
-                                                  --cover-erase \
-                                                  --cover-min-percentage=95"
+	@bash -c "source test_env.sh; nosetests --with-coverage \
+	                                        --cover-package=muse_usps \
+                                                --cover-tests \
+                                                --cover-erase \
+                                                --cover-min-percentage=95"
 
 .PHONY: lint
 LINT_TARGETS := setup.py muse_usps
