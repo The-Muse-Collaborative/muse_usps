@@ -14,14 +14,14 @@ def validate(api_url, user_id, address):
     :param user_id: The API user ID assigned by USPS.
     :type user_id: string
     :param address: A dictionary containing the address to validate. Must
-	contain the keys ``address_line_1``, ``address_line_2``, ``city``,
-	``state``, and ``zip_code`` all with string values. Some values may be
-	empty strings and the USPS API will attempt to fill them in if
+        contain the keys ``address_line_1``, ``address_line_2``, ``city``,
+        ``state``, and ``zip_code`` all with string values. Some values may be
+        empty strings and the USPS API will attempt to fill them in if
         possible.
     :type address: dictionary
     :returns: A dictionary containing the same fields as the ``address``
-	parameter as validated by the USPS API.  If the USPS API returns extra
-	fields, they will be returned in a ``usps_extra`` key on the return
+        parameter as validated by the USPS API.  If the USPS API returns extra
+        fields, they will be returned in a ``usps_extra`` key on the return
         value containing a dictionary of the returned fields.
     :rtype: dictionary
     """
