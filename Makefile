@@ -28,7 +28,6 @@ docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	 git rm -rf . && \
 	 find ../html -mindepth 1 -maxdepth 1 -exec mv {} . \; && \
 	 git add . && \
-	 (git diff-files --quiet && exit 0) || \
 	 git commit -m "Travis-CI: Deploying documentation." && \
 	 echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
 	 git remote set-url origin $$(git config remote.origin.url | \
