@@ -47,5 +47,11 @@ hooks: ## Installs git pre-commit hook for the repository.
 	@printf "#!/usr/bin/env bash\nmake pre-commit" > .git/hooks/pre-commit
 	@chmod +x .git/hooks/pre-commit
 
+.PHONY: no-unstaged
+no-unstaged:
+	@git diff --quiet || (echo "Unstaged changes found!" && exit 1)
+
+# The docs target is part of pre-commit so we can make sure the docs at least
+# build properly.
 .PHONY: pre-commit
-pre-commit: test lint ## Run all pre-commit checks.
+pre-commit: no-unstaged test lint docs ## Run all pre-commit checks.
