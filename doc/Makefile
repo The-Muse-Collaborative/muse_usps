@@ -1,4 +1,4 @@
-SPHINXOPTS    =
+SPHINXOPTS    = -E -d ./doctree
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = muse_usps
 SOURCEDIR     = .

@@ -17,7 +17,7 @@ lint: ## Run pep8 and pylint checks on python files.
 
 .PHONY: docs
 docs: ## Update HTML documentation.
-	@cd docs && $(MAKE) html
+	@cd doc && $(MAKE) html
 
 .PHONY: hooks
 hooks: ## Installs git pre-commit hook for the repository.
