@@ -2,7 +2,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = muse_usps
 SOURCEDIR     = .
-BUILDDIR      = _build
+BUILDDIR      = ../../muse_usps_doc
 
 # Put it first so that "make" without argument is like "make help".
 help:
