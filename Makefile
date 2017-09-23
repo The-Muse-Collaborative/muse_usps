@@ -34,7 +34,7 @@ docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	 echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
 	 git remote set-url origin $$(git config remote.origin.url | \
 	   sed "s|https://|https://$${GITHUB_USERNAME}:$${GITHUB_TOKEN}@|" | \
-	   sed "s|github.com:|github.com/|")) && \
+	   sed "s|github.com:|github.com/|") && \
 	 git push origin gh-pages
 
 .PHONY: hooks
