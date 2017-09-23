@@ -13,7 +13,7 @@ after_success:
 - coveralls
 deploy:
   provider: pages
-  local_dir: "docs/build/html"
+  local_dir: "doc/build/html"
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
