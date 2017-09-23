@@ -7,8 +7,7 @@ branches:
   - master
 script:
 - python setup.py install
-- make lint
-- make test
+- make pre-commit
 after_success:
 - pip install python-coveralls
 - coveralls
