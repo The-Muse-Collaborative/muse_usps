@@ -1,8 +1,8 @@
-SPHINXOPTS    = -E -d ./doctree
+SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = muse_usps
 SOURCEDIR     = .
-BUILDDIR      = ../../muse_usps_doc
+BUILDDIR      = build
 
 # Put it first so that "make" without argument is like "make help".
 help:

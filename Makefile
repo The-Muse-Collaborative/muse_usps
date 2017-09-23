@@ -1,9 +1,9 @@
 .PHONY: help
 help:
-	@echo "Target     Description"
-	@echo "========== ==========="
+	@echo "Target      Description"
+	@echo "=========== ==================================================="
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
-	 awk 'BEGIN {FS = ":.*?## "}; {printf "%-10s %s\n", $$1, $$2}'
+	 awk 'BEGIN {FS = ":.*?## "}; {printf "%-11s %s\n", $$1, $$2}'
 
 .PHONY: test
 test: ## Run unit tests and generate coverage.
@@ -16,8 +16,24 @@ lint: ## Run pep8 and pylint checks on python files.
 	pylint $(LINT_TARGETS)
 
 .PHONY: docs
-docs: ## Update HTML documentation.
+docs: ## Create HTML documentation.
 	@cd doc && $(MAKE) html
+
+.PHONY: docs-deploy
+docs-deploy: docs ## Deploy built documentation to GitHub.
+	@cd doc/build && \
+	 rm -rf repo && \
+	 git clone -b gh-pages $$(git config --get remote.origin.url) repo && \
+	 cd repo && \
+	 git rm -rf . && \
+	 find ../html -mindepth 1 -maxdepth 1 -exec mv {} . \; && \
+	 git add . && \
+	 git commit -m "Travis-CI: Deploying documentation." && \
+	 (echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
+	  git remote set-url $$(git config remote.origin.url | \
+	  sed 's|^git@|https://$${GITHUB_USERNAME}:$${GITHUB_ACCESS_TOKEN}@|' | \
+	  sed 's|github.com:|github.com/|')) && \
+	 git push origin gh-pages
 
 .PHONY: hooks
 hooks: ## Installs git pre-commit hook for the repository.
