@@ -26,9 +26,11 @@ docs: ## Create HTML documentation.
 .PHONY: docs-publish
 docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	@REV="$$(git describe)" && \
+	 URL=$$(git config --get remote.origin.url | \
+                sed -r 's|https://([^/]+?)/|git@\1:|') && \
 	 cd doc/build && \
 	 rm -rf repo && \
-	 git clone -b gh-pages $$(git config --get remote.origin.url) repo && \
+	 git clone -b gh-pages $${URL} repo && \
 	 cd repo && \
 	 git rm -rf . && \
 	 find ../html -mindepth 1 -maxdepth 1 -exec mv {} . \; && \
