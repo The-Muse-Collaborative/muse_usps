@@ -1,9 +1,9 @@
 .PHONY: help
 help:
-	@echo "Target      Description"
-	@echo "=========== ==================================================="
+	@echo "Target       Description"
+	@echo "============ =================================================="
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
-	 awk 'BEGIN {FS = ":.*?## "}; {printf "%-11s %s\n", $$1, $$2}'
+	 awk 'BEGIN {FS = ":.*?## "}; {printf "%-12s %s\n", $$1, $$2}'
 
 .PHONY: test
 test: ## Run unit tests and generate coverage.
@@ -13,15 +13,15 @@ test: ## Run unit tests and generate coverage.
                                                 --cover-erase \
                                                 --cover-min-percentage=95"
 
-.PHONY: lint
 LINT_TARGETS := setup.py muse_usps
+.PHONY: lint
 lint: ## Run pep8 and pylint checks on python files.
 	pep8 $(LINT_TARGETS)
 	pylint $(LINT_TARGETS)
 
 .PHONY: docs
 docs: ## Create HTML documentation.
-	@cd doc && $(MAKE) html
+	@python -msphinx -M html doc doc/build
 
 .PHONY: docs-publish
 docs-publish: docs ## Publishes built documentation to GitHub Pages.
