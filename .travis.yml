@@ -11,10 +11,3 @@ script:
 after_success:
 - pip install python-coveralls
 - coveralls
-deploy:
-  provider: pages
-  local_dir: "doc/build/html"
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master

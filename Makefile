@@ -33,10 +33,6 @@ docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	 find ../html -mindepth 1 -maxdepth 1 -exec mv {} . \; && \
 	 git add . && \
 	 git commit -m "Publishing updated documentation." && \
-	 echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
-	 git remote set-url origin $$(git config remote.origin.url | \
-	   sed "s|https://|https://$${GITHUB_USERNAME}:$${GITHUB_TOKEN}@|" | \
-	   sed "s|github.com:|github.com/|") && \
 	 git push origin gh-pages
 
 .PHONY: hooks
