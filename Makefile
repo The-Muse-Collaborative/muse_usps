@@ -7,7 +7,11 @@ help:
 
 .PHONY: test
 test: ## Run unit tests and generate coverage.
-	@bash -c "source test_env.sh && nosetests"
+	@bash -c "source test_env.sh && nosetests --with-coverage \
+	                                          --cover-package=muse_usps \
+                                                  --cover-tests \
+                                                  --cover-erase \
+                                                  --cover-min-percentage=95"
 
 .PHONY: lint
 LINT_TARGETS := setup.py muse_usps
@@ -28,7 +32,7 @@ docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	 git rm -rf . && \
 	 find ../html -mindepth 1 -maxdepth 1 -exec mv {} . \; && \
 	 git add . && \
-	 git commit -m "Travis-CI: Deploying documentation." && \
+	 git commit -m "Publishing updated documentation." && \
 	 echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
 	 git remote set-url origin $$(git config remote.origin.url | \
 	   sed "s|https://|https://$${GITHUB_USERNAME}:$${GITHUB_TOKEN}@|" | \
