@@ -7,8 +7,9 @@ Simple python module providing a `muse_usps.validate` function which validates
 addresses over the USPS web API.
 
 ## Documentation
-[Documentation](https://jonesinator.github.io/muse_usps) is generated from the
-souce code using `Sphinx` and served by GitHub pages.
+[Documentation](https://jonesinator.github.io/muse_usps) is automatically
+generated from the source code using Sphinx by Travis-CI and served by GitHub
+pages.
 
 ## Installation
 Simply clone the repository and run `python setup.py install`.
@@ -17,6 +18,8 @@ The tip version can be installed using `pip` with
 `pip install -e git+git://github.com/jonesinator/muse_usps.git@master#egg=muse_usps`.
 A specific version can be installed by replacing `master` with a tag name or
 the the hash of the changeset that should be installed.
+
+This package is not currently uploaded to PyPI, but we may do so in the future.
 
 ## Usage
 
@@ -55,14 +58,27 @@ pip install -r requirements.txt
 make hooks
 cat << EOF >> test_env.sh
 export MUSE_USPS_API_URL="API URL HERE"
-export MUSE_USPS_API_URL="USER ID HERE"
+export MUSE_USPS_USER_ID="USER ID HERE"
 EOF
 make pre-commit
 ```
 
-For the Travis-CI tests these environment variables are configured in the
-Travis-CI repository settings and are not in `travis.yml`. Additionally, the
-Travis-CI repository settings specify a `COVERALLS_REPO_TOKEN` environment
-variable for uploading code coverage results to coveralls.
-
 The `Makefile` provides several useful targets. Use `make help` for a list.
+
+Git tags are used to mark version numbers. The version numbers are extracted
+from the latest git tag by the Python package and the Sphinx documentation.
+
+## Travis-CI Configuration
+
+For the Travis-CI tests the environment variables `MUSE_USPS_API_URL` and
+`MUSE_USPS_USER_ID` are configured in the Travis-CI repository settings.
+Additionally, the Travis-CI repository settings specify a
+`COVERALLS_REPO_TOKEN` environment variable for uploading code coverage results
+to coveralls.io.
+
+To enable Travis-CI to automatically publish to GitHub Pages a deploy key was
+added to this repository. The private key was encrypted
+([instructions](https://docs.travis-ci.com/user/encrypting-files/)) and added
+to the repository as `travis_github_deploy_key.enc`. The encryption keys were
+added to the repository settings in Travis-CI as `encrypted_bfd322024369_key`
+and `encrypted_bfd322024369_iv`.
