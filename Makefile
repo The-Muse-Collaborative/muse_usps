@@ -19,8 +19,8 @@ lint: ## Run pep8 and pylint checks on python files.
 docs: ## Create HTML documentation.
 	@cd doc && $(MAKE) html
 
-.PHONY: docs-deploy
-docs-deploy: docs ## Deploy built documentation to GitHub.
+.PHONY: docs-publish
+docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	@cd doc/build && \
 	 rm -rf repo && \
 	 git clone -b gh-pages $$(git config --get remote.origin.url) repo && \
@@ -30,10 +30,10 @@ docs-deploy: docs ## Deploy built documentation to GitHub.
 	 git add . && \
 	 git commit -m "Travis-CI: Deploying documentation." && \
 	 (echo $$(git config --get remote.origin.url) | grep -q '^git@' || \
-	  git remote set-url $$(git config remote.origin.url | \
-	  sed 's|^git@|https://$${GITHUB_USERNAME}:$${GITHUB_ACCESS_TOKEN}@|' | \
-	  sed 's|github.com:|github.com/|')) && \
-	 git push origin gh-pages
+	  git remote set-url origin $$(git config remote.origin.url | \
+	  sed "s|https://|https://$${GITHUB_USERNAME}:$${GITHUB_TOKEN}@|" | \
+	  sed "s|github.com:|github.com/|")) && \
+	 (git diff-files --quiet || git push origin gh-pages)
 
 .PHONY: hooks
 hooks: ## Installs git pre-commit hook for the repository.

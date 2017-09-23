@@ -1,4 +1,5 @@
-""" Module docstring. """
+""" Provides muse_usps.validate function for validating addresses with the USPS
+web API. """
 import urllib.parse
 import urllib.request
 

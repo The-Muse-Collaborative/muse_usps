@@ -12,3 +12,4 @@ script:
 after_success:
 - pip install python-coveralls
 - coveralls
+- make docs-publish
