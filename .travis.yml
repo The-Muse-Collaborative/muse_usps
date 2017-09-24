@@ -4,12 +4,10 @@ branches:
 language:
 - python
 python:
-- 3.2
 - 3.3
 - 3.4
 - 3.5
 - 3.6
-- nightly
 script:
 - python setup.py install
 - make pre-commit
