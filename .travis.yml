@@ -17,6 +17,7 @@ before_install:
   -out travis_github_deploy_key
   -d
 - chmod 0600 travis_github_deploy_key
+- ls -al
 - ssh-keygen -lf travis_github_deploy_key
 - cp travis_github_deploy_key ~/.ssh/id_rsa
 script:
