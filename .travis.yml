@@ -11,8 +11,8 @@ python:
 before_install:
 - >-
   openssl aes-256-cbc
-  -K $encrypted_bfd322024369_key
-  -iv $encrypted_bfd322024369_iv
+  -K $encrypted_7c3d4e9a3076_key
+  -iv $encrypted_7c3d4e9a3076_iv
   -in travis_github_deploy_key.enc
   -out travis_github_deploy_key
   -d
