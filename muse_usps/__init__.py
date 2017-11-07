@@ -59,7 +59,9 @@ def validate(api_url, user_id, address):
     validated['address_line_2'] = usps_format.pop('Address1', '')
     validated['city'] = usps_format.pop('City', '')
     validated['state'] = usps_format.pop('State', '')
-    validated['zip_code'] = '{0}-{1}'.format(usps_format.pop('Zip5', ''),
-                                             usps_format.pop('Zip4', ''))
+    validated['zip_code'] = usps_format.pop('Zip5', '')
+    zip4 = usps_format.pop('Zip4', '')
+    if zip4:
+        validated['zip_code'] += '-' + zip4
     validated['usps_extra'] = usps_format
     return validated
