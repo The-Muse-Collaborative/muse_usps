@@ -17,10 +17,7 @@ before_install:
   -out travis_github_deploy_key
   -d
 - chmod 0600 travis_github_deploy_key
-- ls -al
-- head -1 travis_github_deploy_key
-- tail -1 travis_github_deploy_key
-- ssh-keygen -lf travis_github_deploy_key
+- ssh-keygen -l -E md5 -f <(ssh-keygen -yf travis_github_deploy_key)
 - cp travis_github_deploy_key ~/.ssh/id_rsa
 script:
 - python setup.py install
