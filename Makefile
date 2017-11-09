@@ -9,9 +9,10 @@ help:
 test: ## Run unit tests and generate coverage.
 	@bash -c "source test_env.sh; nosetests --with-coverage \
 	                                        --cover-package=muse_usps \
-                                                --cover-tests \
-                                                --cover-erase \
-                                                --cover-min-percentage=95"
+	                                        --cover-tests \
+	                                        --cover-erase \
+	                                        --cover-min-percentage=95 \
+	                                        --debug=muse_usps"
 
 LINT_TARGETS := setup.py muse_usps
 .PHONY: lint
@@ -27,7 +28,7 @@ docs: ## Create HTML documentation.
 docs-publish: docs ## Publishes built documentation to GitHub Pages.
 	@REV="$$(git describe)" && \
 	 URL=$$(git config --get remote.origin.url | \
-                sed -r 's|https://([^/]+?)/|git@\1:|') && \
+	     sed -r 's|https://([^/]+?)/|git@\1:|') && \
 	 cd doc/build && \
 	 rm -rf repo && \
 	 git clone -b gh-pages $${URL} repo && \
