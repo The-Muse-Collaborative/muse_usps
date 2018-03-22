@@ -1,13 +1,13 @@
 # muse\_usps
-![License](https://img.shields.io/github/license/jonesinator/muse_usps.svg)
-[![Build Status](https://travis-ci.org/jonesinator/muse_usps.svg)](https://travis-ci.org/jonesinator/muse_usps)
-[![Coverage Status](https://coveralls.io/repos/jonesinator/muse_usps/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonesinator/muse_usps?branch=master)
+![License](https://img.shields.io/github/license/The-Muse-Collaborative/muse_usps.svg)
+[![Build Status](https://travis-ci.org/The-Muse-Collaborative/muse_usps.svg)](https://travis-ci.org/The-Muse-Collaborative/muse_usps)
+[![Coverage Status](https://coveralls.io/repos/The-Muse-Collaborative/muse_usps/badge.svg?branch=master&service=github)](https://coveralls.io/github/The-Muse-Collaborative/muse_usps?branch=master)
 
 Simple python module providing a `muse_usps.validate` function which validates
 addresses over the USPS web API.
 
 ## Documentation
-[Documentation](https://jonesinator.github.io/muse_usps) is automatically
+[Documentation](https://The-Muse-Collaborative.github.io/muse_usps) is automatically
 generated from the source code using Sphinx by Travis-CI and served by GitHub
 pages.
 
